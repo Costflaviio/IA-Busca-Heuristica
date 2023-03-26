@@ -60,9 +60,18 @@ def limpar_grade(grade):
     for linha in grade:
         for bloco in linha:
             bloco.reiniciar()
+            
+def carregar_musica_fundo():
+    musica_fundo = pygame.mixer.Sound('#Caminho do arquivo mp3')
+    musica_fundo.set_volume(0.4)
+    musica_fundo.play(-1)
 
+    return (musica_fundo)
 
 def main(janela, largura):
+    pygame.init()
+    pygame.mixer.init()
+    carregar_musica_fundo()
     LINHAS = 42
     grade = criar_grade(LINHAS, largura)
     esferas = criar_esferas(grade, LINHAS, largura)
